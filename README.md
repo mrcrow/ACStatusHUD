@@ -28,9 +28,9 @@ Michael WU (wwz.michael@gmail.com)
 
 ACStatusHUD is available under the MIT license. See the LICENSE file for more info.
 
+```
 MIT License
 
-```
 Copyright (c) 2020 Michael WU
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
