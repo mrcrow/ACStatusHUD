@@ -17,12 +17,12 @@ ACStatusHUD is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'ACStatusHUD'
+pod 'ACStatusHUD', '~> 0.1.0'
 ```
 
 ## Author
 
-mrcrow, wwz.michael@gmail.com
+Michael WU (wwz.michael@gmail.com)
 
 ## License
 
