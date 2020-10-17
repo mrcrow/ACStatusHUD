@@ -22,21 +22,12 @@ ACStatusHUD is an objc version of SPAlert, used to display status update in the 
                        DESC
 
   s.homepage         = 'https://github.com/mrcrow/ACStatusHUD'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'mrcrow' => 'wwz.michael@gmail.com' }
   s.source           = { :git => 'https://github.com/mrcrow/ACStatusHUD.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '12.0'
 
   s.source_files = 'ACStatusHUD/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'ACStatusHUD' => ['ACStatusHUD/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit', 'QuartzCore'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
