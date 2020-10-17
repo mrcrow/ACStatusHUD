@@ -38,7 +38,7 @@
 
 /* Begin PBXFileReference section */
 		257FFE709DE3AD29BFF2A872 /* Pods_ACStatusHUD_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ACStatusHUD_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		34185F39E968D332146E1F8F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		34185F39E968D332146E1F8F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* ACStatusHUD_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACStatusHUD_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -61,11 +61,11 @@
 		65798A9E49F72838E74CCB5B /* Pods-ACStatusHUD_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACStatusHUD_Example.debug.xcconfig"; path = "Target Support Files/Pods-ACStatusHUD_Example/Pods-ACStatusHUD_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C1078009621915AA267AC88 /* Pods-ACStatusHUD_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACStatusHUD_Tests.release.xcconfig"; path = "Target Support Files/Pods-ACStatusHUD_Tests/Pods-ACStatusHUD_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		7E5BD0FD813777A6F7EFD977 /* ACStatusHUD.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = ACStatusHUD.podspec; path = ../ACStatusHUD.podspec; sourceTree = "<group>"; };
+		7E5BD0FD813777A6F7EFD977 /* ACStatusHUD.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ACStatusHUD.podspec; path = ../ACStatusHUD.podspec; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		960E10FB89D229A382AB1613 /* Pods-ACStatusHUD_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACStatusHUD_Tests.debug.xcconfig"; path = "Target Support Files/Pods-ACStatusHUD_Tests/Pods-ACStatusHUD_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C7813AE5DDC288754752DBA7 /* Pods-ACStatusHUD_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACStatusHUD_Example.release.xcconfig"; path = "Target Support Files/Pods-ACStatusHUD_Example/Pods-ACStatusHUD_Example.release.xcconfig"; sourceTree = "<group>"; };
-		DD2B9280F7E9988DEEBB2FD5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		DD2B9280F7E9988DEEBB2FD5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		EA72CE897586C6EE17C23702 /* Pods_ACStatusHUD_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ACStatusHUD_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -193,7 +193,6 @@
 				960E10FB89D229A382AB1613 /* Pods-ACStatusHUD_Tests.debug.xcconfig */,
 				7C1078009621915AA267AC88 /* Pods-ACStatusHUD_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -249,6 +248,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = mrcrow;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = LC5K78Z623;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -259,6 +261,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -513,6 +516,7 @@
 			baseConfigurationReference = 65798A9E49F72838E74CCB5B /* Pods-ACStatusHUD_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = LC5K78Z623;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ACStatusHUD/ACStatusHUD-Prefix.pch";
 				INFOPLIST_FILE = "ACStatusHUD/ACStatusHUD-Info.plist";
@@ -529,6 +533,7 @@
 			baseConfigurationReference = C7813AE5DDC288754752DBA7 /* Pods-ACStatusHUD_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = LC5K78Z623;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ACStatusHUD/ACStatusHUD-Prefix.pch";
 				INFOPLIST_FILE = "ACStatusHUD/ACStatusHUD-Info.plist";
