@@ -37,6 +37,6 @@ ACStatusHUD is an objc version of SPAlert, used to display status update in the 
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  s.frameworks = 'UIKit'
+  s.frameworks = 'UIKit', 'QuartzCore'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
