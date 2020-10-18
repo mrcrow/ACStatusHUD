@@ -8,6 +8,7 @@
 
 #import "ACViewController.h"
 #import <ACStatusHUD/ACStatusHUD.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface ACViewController ()
 
@@ -18,9 +19,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 	// Do any additional setup after loading the view, typically from a nib.
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [ACStatusHUD presentTitle:@"New card added" message:nil iconStyle:ACStatusIconTypeCard];
+        ACStatusView *hud = [ACStatusHUD presentLoadingWithTitle:@"Waiting" message:nil];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [hud dismiss];
+            [ACStatusHUD presentTitle:@"New card added" message:nil iconStyle:ACStatusIconTypeCard];
+        });
     });
 }
 

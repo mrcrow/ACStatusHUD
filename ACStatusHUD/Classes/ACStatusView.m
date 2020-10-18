@@ -49,6 +49,12 @@
 
 #define AC_BACKGROUND_WIDTH 250
 
+@interface ACStatusView ()
+
+/// View to disable user interaction on background.
+@property (nonatomic, strong)   UIView  *noneInteractableView;
+@end
+
 @implementation ACStatusView
 
 - (instancetype)initWithTitle:(NSString *)title message:(NSString *)message iconType:(ACStatusIconType)type {
@@ -98,6 +104,7 @@
 - (void)commonInit {
     _duration = 1.5;
     _dismissByTap = YES;
+    _backgroundUserInteractable = YES;
     _keyWindow = [self presentWindow];
     
     self.backgroundColor = [UIColor clearColor];
@@ -174,13 +181,18 @@
     label.frame = CGRectMake(x, y, width, CGRectGetHeight(label.frame));
 }
 
-- (void)present {
+- (void)presentWithAutoHide:(BOOL)hide {
     [self generateHapticFeedback];
     [self applySubtitleFont];
     
     if (_dismissByTap) {
         UITapGestureRecognizer *tapGesterRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
         [self addGestureRecognizer:tapGesterRecognizer];
+    }
+    
+    if (!_backgroundUserInteractable) {
+        _noneInteractableView = [[UIView alloc] initWithFrame:_keyWindow.bounds];
+        [_keyWindow addSubview:_noneInteractableView];
     }
     
     [_keyWindow addSubview:self];
@@ -197,15 +209,21 @@
             [(UIView <ACStatusIconAnimatable> *)self.iconView animate];
         }
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(self.duration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self dismiss];
+        if (hide) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(self.duration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self dismiss];
+                });
             });
-        });
+        }
     }];
 }
 
 - (void)dismiss {
+    if (!_backgroundUserInteractable) {
+        [_noneInteractableView removeFromSuperview];
+    }
+    
     [UIView animateWithDuration:0.2 animations:^{
         self.alpha = 0;
         self.transform = CGAffineTransformScale(self.transform, 0.8, 0.8);

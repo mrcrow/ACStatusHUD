@@ -20,31 +20,40 @@
 
 
 #import "ACStatusHUD.h"
+#import "ACStatusIconLoadingView.h"
 
 @implementation ACStatusHUD
 
 + (void)presentTitle:(NSString *)title message:(nullable NSString *)message iconStyle:(ACStatusIconType)type {
     ACStatusView *hud = [[ACStatusView alloc] initWithTitle:title message:message iconType:type];
-    [hud present];
+    [hud presentWithAutoHide:YES];
 }
 
 + (void)presentTitle:(NSString *)title message:(nullable NSString *)message iconView:(UIView *)view hapticFeedback:(ACStatusHapticFeedbackType)type {
     ACStatusView *hud = [[ACStatusView alloc] initWithTitle:title message:message iconView:view];
     hud.hapticFeedbackType = type;
-    [hud present];
+    [hud presentWithAutoHide:YES];
 }
 
 + (void)presentTitle:(NSString *)title message:(nullable NSString *)message iconImage:(UIImage *)image hapticFeedback:(ACStatusHapticFeedbackType)type {
     ACStatusView *hud = [[ACStatusView alloc] initWithTitle:title message:message iconImage:image];
     hud.hapticFeedbackType = type;
-    [hud present];
+    [hud presentWithAutoHide:YES];
 }
 
 + (void)presentMessage:(NSString *)message highlight:(BOOL)highlight hapticFeedback:(ACStatusHapticFeedbackType)type {
-    ACStatusView *view = [[ACStatusView alloc] initWithMessage:message];
-    view.hapticFeedbackType = type;
-    view.hightlightSubtitleLabel = highlight;
-    [view present];
+    ACStatusView *hud = [[ACStatusView alloc] initWithMessage:message];
+    hud.hapticFeedbackType = type;
+    hud.hightlightSubtitleLabel = highlight;
+    [hud presentWithAutoHide:YES];
+}
+
++ (ACStatusView *)presentLoadingWithTitle:(NSString *)title message:(NSString *)message {
+    ACStatusView *hud = [[ACStatusView alloc] initWithTitle:title message:message iconView:[ACStatusIconLoadingView new]];
+    hud.dismissByTap = NO;
+    hud.backgroundUserInteractable = NO;
+    [hud presentWithAutoHide:NO];
+    return hud;
 }
 
 @end

@@ -57,11 +57,15 @@ NS_ASSUME_NONNULL_BEGIN
 /// Highlight subtitle will use larger bold font instead of system font.
 @property (nonatomic, assign)   BOOL    hightlightSubtitleLabel;
 
+/// Background user interactable when present.
+@property (nonatomic, assign)   BOOL    backgroundUserInteractable;
+
 - (instancetype)initWithTitle:(NSString *)title message:(nullable NSString *)message iconType:(ACStatusIconType)type;
 - (instancetype)initWithTitle:(NSString *)title message:(nullable NSString *)message iconView:(UIView *)view;
 - (instancetype)initWithTitle:(NSString *)title message:(nullable NSString *)message iconImage:(UIImage *)image;
 - (instancetype)initWithMessage:(nonnull NSString *)message;
-- (void)present;
+- (void)presentWithAutoHide:(BOOL)hide;
+- (void)dismiss;
 
 @end
 

@@ -21,35 +21,35 @@
 
 #import "ACStatusIconLoadingView.h"
 
-@interface ACStatusIconLoadingView ()
-@property (nonatomic, strong)   UIActivityIndicatorView *indicatorView;
-@end
-
 @implementation ACStatusIconLoadingView
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        if (@available(iOS 13.0, *)) {
-            _indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
-        } else {
-            _indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-        }
-        
-        [self addSubview:_indicatorView];
-    }
-    
-    return self;
-}
-
 - (void)animate {
-    _indicatorView.color = self.tintColor;
-    [_indicatorView startAnimating];
+    [self animateRingInfiniteRotation];
 }
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    _indicatorView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
+- (void)animateRingInfiniteRotation {
+    CGFloat length = CGRectGetWidth(self.frame);
+    
+    UIBezierPath *circle = [UIBezierPath bezierPathWithArcCenter:CGPointMake(length * 0.5, length * 0.5) radius:length * 0.5 startAngle:0.1 * M_PI endAngle:1.9 * M_PI clockwise:YES];
+    
+    CAShapeLayer *animatableLayer = [CAShapeLayer layer];
+    animatableLayer.frame = self.bounds;
+    animatableLayer.anchorPoint = CGPointMake(0.5, 0.5);
+    animatableLayer.path = circle.CGPath;
+    animatableLayer.fillColor = [UIColor clearColor].CGColor;
+    animatableLayer.strokeColor = self.tintColor.CGColor;
+    animatableLayer.lineWidth = 6;
+    animatableLayer.lineCap = kCALineCapRound;
+    animatableLayer.lineJoin = kCALineJoinRound;
+    animatableLayer.strokeEnd = 1;
+    [self.layer addSublayer:animatableLayer];
+    
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    animation.toValue = [NSNumber numberWithFloat:2 * M_PI];
+    animation.duration = 1;
+    animation.cumulative = YES;
+    animation.repeatCount = HUGE_VALF;
+    [animatableLayer addAnimation:animation forKey:@"animation"];
 }
 
 @end

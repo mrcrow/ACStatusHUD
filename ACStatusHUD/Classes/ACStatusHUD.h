@@ -52,6 +52,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param type Haptic feedback type
 + (void)presentMessage:(NSString *)message highlight:(BOOL)highlight hapticFeedback:(ACStatusHapticFeedbackType)type;
 
+/// Present loading with title and message
+/// @param title Title should not be nil
+/// @param message Nullable message
++ (ACStatusView *)presentLoadingWithTitle:(NSString *)title message:(nullable NSString *)message;
+
 @end
 
 NS_ASSUME_NONNULL_END
